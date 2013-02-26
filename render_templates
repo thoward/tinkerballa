@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $PUBLIC_IP ]; then
+  sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerbell/templates/tinkerbell.conf.template > /var/tinkerbell/tinkerbell.conf
+  sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerbell/templates/syslinux.cfg.template > /var/tinkerbell/tftp/ubuntu-installer/amd64/boot-screens/syslinux.cfg
+else
+  echo "Environment variable PUBLIC_IP must be set"
+fi

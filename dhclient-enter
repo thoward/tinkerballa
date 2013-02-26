@@ -1,0 +1,30 @@
+#!/bin/sh
+#REASON=$REASON
+if [ -n $REASON ]; then 
+  REASON=$reason
+fi
+
+#printenv
+
+if [ $interface = "eth1" ]; then 
+  case $REASON in
+   "BOUND"|"RENEW"|"REBIND"|"REBOOT") 
+      echo Tinkerbell: $REASON state
+      echo Tinkerbell: Reconfiguring for $new_ip_address
+      
+      # stop dnsmasq and http server
+      service dnsmasq stop
+      /var/tinkerbell/stop_http
+      
+      # update templates with new IP
+      PUBLIC_IP=$new_ip_address /var/tinkerbell/render_templates  
+      # restart dnsmasq and http server
+      service dnsmasq restart
+      /var/tinkerbell/start_http
+      ;;
+    *)
+      echo "Tinkerbell: No action taken for reason: $REASON"
+      ;;
+  esac
+fi  
+  

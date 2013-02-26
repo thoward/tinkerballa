@@ -1,0 +1,3 @@
+#!/bin/sh
+
+nohup /bin/bash -c "(cd /var/tinkerbell/www && python -m SimpleHTTPServer)" >> /var/log/pyhttp.log &
