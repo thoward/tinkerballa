@@ -1,2 +1,4 @@
 .vagrant
 Gemfile.lock
+tinkerballa.conf
+tftp/ubuntu-installer/amd64/boot-screens/syslinux.cfg
