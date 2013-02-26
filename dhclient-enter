@@ -14,13 +14,13 @@ if [ $interface = "eth1" ]; then
       
       # stop dnsmasq and http server
       service dnsmasq stop
-      /var/tinkerbell/stop_http
+      /var/tinkerballa/stop_http
       
       # update templates with new IP
-      PUBLIC_IP=$new_ip_address /var/tinkerbell/render_templates  
+      PUBLIC_IP=$new_ip_address /var/tinkerballa/render_templates  
       # restart dnsmasq and http server
       service dnsmasq restart
-      /var/tinkerbell/start_http
+      /var/tinkerballa/start_http
       ;;
     *)
       echo "Tinkerbell: No action taken for reason: $REASON"

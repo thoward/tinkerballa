@@ -10,8 +10,8 @@ Vagrant::Config.run do |config|
   # install dnsmasq
   config.vm.provision :shell, :inline => 'sudo aptitude -y install dnsmasq'
   
-  # install tinkerbell
-  config.vm.provision :shell, :inline => 'sudo ln -sb --suffix .bak /vagrant /var/tinkerbell'
-  config.vm.provision :shell, :inline => 'sudo /var/tinkerbell/install.sh'
+  # install tinkerballa
+  config.vm.provision :shell, :inline => 'sudo ln -sb --suffix .bak /vagrant /var/tinkerballa'
+  config.vm.provision :shell, :inline => 'sudo /var/tinkerballa/install.sh'
 end
 

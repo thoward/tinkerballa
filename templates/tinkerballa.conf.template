@@ -9,10 +9,10 @@
   enable-tftp
 
   # Set the root directory for files available via FTP.
-  tftp-root=/var/tinkerbell/tftp
+  tftp-root=/var/tinkerballa/tftp
 
   # The boot filename.
-  dhcp-boot=/var/tinkerbell/tftp/pxelinux.0
+  dhcp-boot=/var/tinkerballa/tftp/pxelinux.0
 
   # kill multicast
   dhcp-option=vendor:PXEClient,6,2b
@@ -26,7 +26,7 @@
 
   # The known types are x86PC, PC98, IA64_EFI, Alpha, Arc_x86,
   # Intel_Lean_Client, IA32_EFI, BC_EFI, Xscale_EFI and X86-64_EFI
-  pxe-service=X86PC, "Boot from network", /var/tinkerbell/tftp/pxelinux
+  pxe-service=X86PC, "Boot from network", /var/tinkerballa/tftp/pxelinux
 
   # A boot service type of 0 is special, and will abort the
   # net boot procedure and continue booting from local media.
@@ -35,7 +35,7 @@
   # This range(s) is for the public interface, where dnsmasq functions
   # as a proxy DHCP server providing boot information but no IP leases.
   # Any ip in the subnet will do, so you may just put your server NIC ip here.
-  dhcp-range=127.0.0.1,proxy
+  dhcp-range={{PUBLIC_IP}},proxy
 
   # For static client IPs, and only for the private subnets,
   # you may put entries like this:
