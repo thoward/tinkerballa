@@ -1,8 +1,9 @@
 #!/bin/sh
 
 if [ $PUBLIC_IP ]; then
-  sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerballa/templates/tinkerballa.conf.template > /var/tinkerballa/tinkerballa.conf
+  sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerballa/templates/tinkerballa.conf.template > /var/tinkerballa/bin/tinkerballa.conf
   sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerballa/templates/syslinux.cfg.template > /var/tinkerballa/tftp/ubuntu-installer/amd64/boot-screens/syslinux.cfg
+  sed s/{{PUBLIC_IP}}/$PUBLIC_IP/g /var/tinkerballa/templates/preseed.cfg.template > /var/tinkerballa/www/preseed.cfg
 else
   echo "Environment variable PUBLIC_IP must be set"
 fi

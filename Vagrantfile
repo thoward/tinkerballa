@@ -12,6 +12,6 @@ Vagrant::Config.run do |config|
   
   # install tinkerballa
   config.vm.provision :shell, :inline => 'sudo ln -sb --suffix .bak /vagrant /var/tinkerballa'
-  config.vm.provision :shell, :inline => 'sudo /var/tinkerballa/install.sh'
+  config.vm.provision :shell, :inline => 'sudo /var/tinkerballa/bin/install.sh'
 end
 
