@@ -17,5 +17,6 @@ cp -f /var/tinkerballa/bin/tinkerballa-http.conf /etc/init/tinkerballa-http.conf
 # reload upstart config
 initctl reload-configuration
 
-# release/renew DHCP lease to configure
+# release/renew DHCP lease, which causes templates to be configured and dnsmasq/http server to be launched
+dhclient -r eth1
 dhclient eth1
