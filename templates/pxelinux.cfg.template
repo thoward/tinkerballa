@@ -1,5 +1,5 @@
 default tnkrbl
 label tnkrbl
   say Tinkerballa: Install Ubuntu
-	kernel ubuntu-installer/amd64/linux
-	append initrd=ubuntu-installer/amd64/initrd.gz url=http://{{PUBLIC_IP}}:8000/preseed.cfg locale=en_US console-setup/ask_detect=false keyboard-configuration/layoutcode=us hostname=tnkrbl interface=auto nomodeset
+	kernel linux
+	append initrd=initrd.gz url=http://{{PUBLIC_IP}}:8000/preseed.cfg locale=en_US console-setup/ask_detect=false keyboard-configuration/layoutcode=us hostname=tnkrbl interface=auto nomodeset
