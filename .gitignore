@@ -3,7 +3,7 @@ Gemfile.lock
 
 # tinkerballa auto generated files
 bin/tinkerballa.conf
-tftp/ubuntu-installer/amd64/boot-screens/syslinux.cfg
 www/preseed.cfg
 www/insecure_default_key
 www/insecure_default_key.pub
+tftp/pxelinux.cfg/default
