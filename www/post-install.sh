@@ -5,13 +5,15 @@
 # NOTE: This script is executed with sudo permissions
 #
 
-if [ $PUBLIC_IP ]; then
+touch /root/post-install.started
 
-  wget http://$PUBLIC_IP:8000/insecure_default_key.pub
+if [ $1 ]; then
+
+  wget -O /root/insecure_default_key.pub http://$1:8000/insecure_default_key.pub
 
   mkdir -p /home/ubuntu/.ssh
-  cat insecure_default_key.pub >> /home/ubuntu/.ssh/authorized_keys
-  rm insecure_default_key.pub
+  cat /root/insecure_default_key.pub >> /home/ubuntu/.ssh/authorized_keys
+  rm /root/insecure_default_key.pub
 
   chmod 700 /home/ubuntu/.ssh
   chmod 644 /home/ubuntu/.ssh/authorized_keys
@@ -20,7 +22,9 @@ if [ $PUBLIC_IP ]; then
   chown ubuntu:ubuntu /home/ubuntu/.ssh/authorized_keys
 
 else
-  echo "Environment variable PUBLIC_IP not configured, so cannot pull remote ssh keys."
+  echo "IP of PXE host not passed as an argument, so cannot pull remote ssh keys."
 fi
+
+touch /root/post-install.completed
 
 # add custom post-install steps here
